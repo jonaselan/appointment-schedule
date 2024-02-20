@@ -1,6 +1,6 @@
 import { Entity } from '@/core/base/entity';
 
-export class PostEntity extends Entity {
+export class AppointmentEntity extends Entity {
   title: string;
   content: string;
   userId: number;

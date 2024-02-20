@@ -1,7 +1,7 @@
 -- AlterTable
-CREATE SEQUENCE posts_id_seq;
-ALTER TABLE "posts" ALTER COLUMN "id" SET DEFAULT nextval('posts_id_seq');
-ALTER SEQUENCE posts_id_seq OWNED BY "posts"."id";
+CREATE SEQUENCE appointments_id_seq;
+ALTER TABLE "appointments" ALTER COLUMN "id" SET DEFAULT nextval('appointments_id_seq');
+ALTER SEQUENCE appointments_id_seq OWNED BY "appointments"."id";
 
 -- AlterTable
 CREATE SEQUENCE users_id_seq;

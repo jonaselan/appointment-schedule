@@ -1,15 +1,15 @@
 import { ApiProperty } from '@nestjs/swagger';
 
-export class CreatePostDto {
+export class CreateAppointmentDto {
   id?: number;
 
   @ApiProperty({
-    example: 'Post title',
+    example: 'Appointment title',
   })
   title: string;
 
   @ApiProperty({
-    example: 'Post content',
+    example: 'Appointment content',
   })
   content: string;
 
