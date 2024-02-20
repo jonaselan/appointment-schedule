@@ -18,8 +18,8 @@ CREATE TABLE "doctors" (
 -- CreateTable
 CREATE TABLE "appointments" (
     "id" INTEGER NOT NULL,
-    "title" TEXT NOT NULL,
-    "content" TEXT NOT NULL,
+    "when" TIMESTAMP NOT NULL,
+    "type" TEXT NOT NULL,
     "user_id" INTEGER NOT NULL,
     "doctor_id" INTEGER NOT NULL,
     PRIMARY KEY (id),
@@ -29,3 +29,4 @@ CREATE TABLE "appointments" (
 
 -- CreateIndex
 CREATE UNIQUE INDEX "users_email_key" ON "users"("email");
+CREATE UNIQUE INDEX "doctors_email_key" ON "doctors"("email");

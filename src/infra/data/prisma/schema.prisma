@@ -28,8 +28,8 @@ model Doctor {
 
 model Appointment {
   id Int @id @default(autoincrement())
-  title String
-  content String
+  when DateTime
+  type String
   userId Int @map("user_id")
   doctorId Int @map("doctor_id")
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
