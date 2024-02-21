@@ -11,9 +11,10 @@ describe('CreateAppointmentUseCase', () => {
   let createUserUseCase: CreateUserUseCase;
   let usersRepository: UsersRepository;
 
-  const title = 'Appointment title';
-  const content = 'Appointment content';
+  const when = new Date();
+  const type = 'Appointment type';
   const userId = 1;
+  const doctorId = 1;
 
   const name = 'John Doe';
   const email = 'johndoe@example.com';
@@ -34,12 +35,14 @@ describe('CreateAppointmentUseCase', () => {
     expect(createAppointmentUseCase).toBeDefined();
   });
 
-  it('should create a appointment', async () => {
+  it('should create an appointment', async () => {
     const appointment = await createAppointmentUseCase.execute({
-      title,
-      content,
+      when,
+      type,
       userId,
+      doctorId,
     });
-    expect(appointment).toEqual({ id: 1, title, content, userId });
+
+    expect(appointment).toEqual({ id: 1, when, type, userId, doctorId });
   });
 });

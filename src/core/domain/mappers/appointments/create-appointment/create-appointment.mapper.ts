@@ -9,9 +9,10 @@ export class CreateAppointmentMapper extends Mapper<
   public mapFrom(data: CreateAppointmentDto): AppointmentEntity {
     const appointment = new AppointmentEntity();
 
-    appointment.title = data.title;
-    appointment.content = data.content;
+    appointment.type = data.type;
+    appointment.when = data.when;
     appointment.userId = data.userId;
+    appointment.doctorId = data.doctorId;
 
     return appointment;
   }
@@ -20,9 +21,10 @@ export class CreateAppointmentMapper extends Mapper<
     const appointment = new CreateAppointmentDto();
 
     appointment.id = data.id;
-    appointment.title = data.title;
-    appointment.content = data.content;
+    appointment.type = data.type;
+    appointment.when = data.when;
     appointment.userId = data.userId;
+    appointment.doctorId = data.doctorId;
 
     return appointment;
   }

@@ -14,9 +14,10 @@ describe('AppointmentsController', () => {
   let usersController: UsersController;
   let appointmentsController: AppointmentsController;
 
-  const title = 'Appointment title';
-  const content = 'Appointment content';
+  const when = new Date();
+  const type = 'Appointment type';
   const userId = 1;
+  const doctorId = 1;
 
   const name = 'John Doe';
   const email = 'johndoe@example.com';
@@ -81,16 +82,18 @@ describe('AppointmentsController', () => {
 
   it('should create a appointment', async () => {
     const appointment = await appointmentsController.create({
-      title,
-      content,
+      when,
+      type,
       userId,
+      doctorId,
     });
-    expect(appointment).toEqual({ id: 1, title, content, userId });
+    expect(appointment).toEqual({ id: 1, when, type, userId, doctorId });
   });
 
   it('should find all appointments', async () => {
-    await appointmentsController.create({ title, content, userId });
+    await appointmentsController.create({ type, when, userId, doctorId });
+
     const appointments = await appointmentsController.findAll();
-    expect(appointments).toEqual([{ id: 1, title, content, userId }]);
+    expect(appointments).toEqual([{ id: 1, when, type, userId, doctorId }]);
   });
 });

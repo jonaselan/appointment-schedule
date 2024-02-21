@@ -13,9 +13,10 @@ describe('CreateAppointmentUseCase', () => {
   let createUserUseCase: CreateUserUseCase;
   let usersRepository: UsersRepository;
 
-  const title = 'Appointment title';
-  const content = 'Appointment content';
+  const when = new Date();
+  const type = 'Appointment type';
   const userId = 1;
+  const doctorId = 1;
 
   const name = 'John Doe';
   const email = 'johndoe@example.com';
@@ -33,7 +34,7 @@ describe('CreateAppointmentUseCase', () => {
     );
 
     await createUserUseCase.execute({ name, email, password });
-    await createAppointmentUseCase.execute({ title, content, userId });
+    await createAppointmentUseCase.execute({ when, type, userId, doctorId });
   });
 
   it('should be defined', () => {
@@ -42,6 +43,6 @@ describe('CreateAppointmentUseCase', () => {
 
   it('should find all appointments', async () => {
     const appointments = await findAllAppointmentsUseCase.execute();
-    expect(appointments).toEqual([{ id: 1, title, content, userId }]);
+    expect(appointments).toEqual([{ id: 1, when, type, userId, doctorId }]);
   });
 });

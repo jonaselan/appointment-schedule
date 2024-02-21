@@ -1,7 +1,9 @@
 import { Entity } from '@/core/base/entity';
 
 export class AppointmentEntity extends Entity {
-  title: string;
-  content: string;
+  id: number;
+  type: string;
+  when: Date;
   userId: number;
+  doctorId: number;
 }

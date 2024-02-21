@@ -1,20 +1,26 @@
+import { AppointmentTypes } from '@/shared/enums/appointmentTypes';
 import { ApiProperty } from '@nestjs/swagger';
 
 export class CreateAppointmentDto {
   id?: number;
 
   @ApiProperty({
-    example: 'Appointment title',
+    example: AppointmentTypes,
   })
-  title: string;
+  type: string;
 
   @ApiProperty({
-    example: 'Appointment content',
+    example: '2024-12-31 23:23:23',
   })
-  content: string;
+  when: Date;
 
   @ApiProperty({
     example: 1,
   })
   userId: number;
+
+  @ApiProperty({
+    example: 1,
+  })
+  doctorId: number;
 }

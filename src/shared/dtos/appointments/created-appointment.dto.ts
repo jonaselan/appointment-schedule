@@ -1,6 +1,7 @@
 export class CreatedAppointmentDto {
   id: number;
-  title: string;
-  content: string;
+  type: string;
+  when: Date;
   userId: number;
+  doctorId: number;
 }

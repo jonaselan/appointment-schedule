@@ -4,9 +4,10 @@ describe('CreatedAppointmentMapper', () => {
   let createdAppointmentMapper: CreatedAppointmentMapper;
 
   const id = 1;
-  const title = 'Appointment title';
-  const content = 'Appointment content';
+  const when = new Date();
+  const type = 'Appointment type';
   const userId = 1;
+  const doctorId = 1;
 
   beforeEach(() => {
     createdAppointmentMapper = new CreatedAppointmentMapper();
@@ -19,20 +20,22 @@ describe('CreatedAppointmentMapper', () => {
   it('should map from', () => {
     const appointment = createdAppointmentMapper.mapFrom({
       id,
-      title,
-      content,
+      when,
+      type,
       userId,
+      doctorId,
     });
-    expect(appointment).toEqual({ id, title, content, userId });
+    expect(appointment).toEqual({ id, when, type, userId, doctorId });
   });
 
   it('should map to', () => {
     const appointment = createdAppointmentMapper.mapTo({
       id,
-      title,
-      content,
+      when,
+      type,
       userId,
+      doctorId,
     });
-    expect(appointment).toEqual({ id, title, content, userId });
+    expect(appointment).toEqual({ id, when, type, userId, doctorId });
   });
 });

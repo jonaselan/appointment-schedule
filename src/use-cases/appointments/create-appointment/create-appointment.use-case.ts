@@ -20,6 +20,7 @@ export class CreateAppointmentUseCase
     appointment: CreateAppointmentDto,
   ): Promise<CreatedAppointmentDto> {
     const entity = this.createAppointmentMapper.mapFrom(appointment);
+
     const createdAppointment = await this.repository.create(entity);
     return this.createdAppointmentMapper.mapTo(createdAppointment);
   }

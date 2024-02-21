@@ -7,12 +7,12 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
   const config = new DocumentBuilder()
-    .setTitle('API')
+    .setTitle('Appointment Schedule')
     .addTag('users')
     .addTag('appointments')
     .build();
   const document = SwaggerModule.createDocument(app, config);
-  SwaggerModule.setup('/', app, document);
+  SwaggerModule.setup('/api-docs', app, document);
 
   const logger = new Logger();
   const port = process.env.PORT ?? 3000;

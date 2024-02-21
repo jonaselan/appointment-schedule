@@ -13,7 +13,7 @@ export class PrismaUsersRepository implements UsersRepository {
     return this.prisma.user.findMany({ where: filter });
   }
 
-  async findOne(filter: Partial<UserEntity>): Promise<UserEntity> {
+  async findOne(filter: UserEntity): Promise<UserEntity> {
     return this.prisma.user.findUnique({ where: filter });
   }
 
